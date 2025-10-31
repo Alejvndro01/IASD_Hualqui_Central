@@ -3,6 +3,7 @@
 * Archivo: HeroCarousel.module.css
 * Descripción: Estilos para el componente de carrusel tipo "Hero".
 * Autor: Dilan Baltras | Fecha: 2025-10-20 (Actualizado para el estilo Destaque)
+* 🛑 ELIMINADAS: Todas las clases dependientes de slick-carousel.
 * =============================================
 */
 
@@ -135,39 +136,7 @@
     background-color: var(--ui-accent-hover);
 }
 
-/* 7. Ajustes a los Puntos de Navegación de Slick (Dots) */
-.heroCarouselSection .slick-dots {
-    bottom: 20px; 
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
-
-.heroCarouselSection .slick-dots li button:before {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 10px;
-}
-
-.heroCarouselSection .slick-dots li.slick-active button:before {
-    color: #fff;
-}
-
-.heroCarouselSection .slick-dots li div {
-    width: 12px;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.heroCarouselSection .slick-dots li.slick-active div {
-    background: #fff;
-    border-color: var(--ui-accent-color);
-}
-
+/* 7. Ajustes a los Puntos de Navegación de Slick (Dots) - 🛑 ELIMINADO */
 /* 8. Media Queries para Responsividad */
 @media (max-width: 1024px) {
     .heroCarouselSection {
@@ -219,11 +188,5 @@
     .heroButton {
         padding: 10px 20px; /* Antes 12px 25px */
         font-size: 0.9em; /* Antes 1em */
-    }
-    .slick-prev, .slick-next {
-        display: none !important; 
-    }
-    .heroCarouselSection .slick-dots {
-        bottom: 10px; 
     }
 }

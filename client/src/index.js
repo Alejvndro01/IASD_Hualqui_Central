@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
-// 🔑 Solución final: Webpack necesita ver la importación directa al módulo
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
