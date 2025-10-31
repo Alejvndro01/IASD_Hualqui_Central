@@ -1,0 +1,106 @@
+/*
+ * =============================================
+ * Archivo: AuthenticatedLayout.module.css
+ * Descripción: Estilos para la estructura principal del layout de usuario autenticado.
+ * Autor: Dilan Baltras | Fecha: 2025-10-19 (Adaptado a Responsividad Móvil)
+ * =============================================
+ */
+
+/* 1. Contenedor Principal del Layout */
+.layoutContainer {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; 
+}
+
+/* 2. Contenido Principal (Main Content) */
+.mainContent {
+    flex-grow: 1;
+    margin-left: 250px; /* Margen inicial para el sidebar abierto (ESCRITORIO) */
+    transition: margin-left var(--tran-05), width var(--tran-05);
+    padding: 20px;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Ajustes para Sidebar Cerrado (ESCRITORIO) */
+.layoutContainer.sidebarClosed .mainContent {
+    margin-left: 88px; /* Reduce el margen para el sidebar colapsado */
+    width: calc(100% - 88px);
+}
+
+/* =========================================== */
+/* 4. ESTILOS Y RESPONSIVIDAD MÓVIL */
+/* =========================================== */
+
+/* Botón Hamburguesa */
+.mobileMenuButton {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 101; /* Debe estar sobre el sidebar (100) */
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 6px;
+    display: none; /* Oculto por defecto en escritorio */
+}
+
+/* Overlay Móvil (Oscurece la pantalla cuando el menú está abierto) */
+.mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+/* Media Query para activar el modo móvil */
+@media (max-width: 768px) {
+    
+    /* 1. Mostrar el botón hamburguesa */
+    .mobileMenuButton {
+        display: block; 
+    }
+    
+    /* 2. Compensación del contenido principal en móvil (LA CLAVE) */
+    .mainContent {
+        /* Eliminamos el margen fijo para que el contenido ocupe el 100% */
+        margin-left: 0 !important; 
+        width: 100% !important;
+        /* Damos un pequeño padding superior para evitar que el contenido quede bajo el botón */
+        padding-top: 60px; 
+        
+        /* Aseguramos que la transición de margen-left no se active en móvil */
+        transition: none; 
+    }
+    
+    /* 3. Anular las reglas de escritorio cuando el sidebar está cerrado/abierto */
+    .layoutContainer.sidebarClosed .mainContent {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* 4. Ocultar el scrollbar en el sidebar móvil */
+    .layoutContainer .sidebar {
+        /* Para evitar que el hover de escritorio interfiera con el táctil */
+        pointer-events: none; 
+    }
+    
+    /* 5. Restaurar el puntero cuando el menú está visible */
+    .layoutContainer.mobileOpen .sidebar {
+        pointer-events: auto;
+    }
+}

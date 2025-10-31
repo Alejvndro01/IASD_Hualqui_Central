@@ -1,0 +1,298 @@
+/*
+* =============================================
+* Archivo: Footer.module.css
+* Descripción: Estilos para el componente Footer, adaptable a temas.
+* Autor: Dilan Baltras | Fecha: 2025-10-21 (Ajuste Específico para Copyright)
+* =============================================
+*/
+
+/* 1. Estilos Base del Footer */
+/* Define el contenedor principal del pie de página. */
+.footer {
+    /* 🛑 CORRECCIÓN DE SINTAXIS (Mantenida la corrección del paso anterior) */
+    background: var(--body-color); /* Fondo adaptable al tema */
+    color: var(--primary-color); /* Color de texto base */ 
+    width: 100%;
+    padding: 40px 0 20px;
+    border-top: 2px solid var(--primary-color-light); /* Borde superior */
+    font-family: 'Montserrat', sans-serif;
+    transition: var(--tran-05); /* Transición global para cambios de tema */
+}
+
+/* Contenedor interno para el contenido, limitando el ancho. */
+.content {
+    max-width: 1200px;
+    margin: auto; /* Centra el contenido */
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: wrap; /* Columnas se envuelven en pantallas pequeñas */
+    justify-content: space-between;
+    gap: 40px; /* Espacio entre secciones principales */
+}
+
+/* 2. Sección Superior del Footer (Logo y Redes Sociales) */
+.top {
+    flex: 1 1 300px; /* Crece y encoge, base de 300px */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre logo y iconos */
+}
+
+/* Estilos para los detalles del logo y nombre. */
+.logoDetails {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre icono y texto */
+}
+
+.logoDetails .icon {
+    font-size: 1.5em;
+    color: var(--primary-color-light); /* Color del icono */
+}
+
+/* Iconos de redes sociales. */
+.mediaIcons {
+    display: flex;
+    gap: 15px; /* Espacio entre iconos */
+}
+
+.mediaIcons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: var(--primary-color-light); /* Fondo del círculo */
+    color: var(--primary-color); /* Color del icono */
+    font-size: 18px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.mediaIcons a:hover {
+    background: var(--primary-color); /* Invierte colores en hover */
+    color: var(--body-color);
+}
+
+/* 3. Sección de Enlaces (Link Boxes) */
+.linkBoxes {
+    flex: 2 1 600px; /* Crece y encoge, base de 600px */
+    display: flex;
+    justify-content: space-between; /* Distribuye las columnas */
+    gap: 30px; /* Espacio entre columnas */
+    flex-wrap: wrap; /* Las columnas se envuelven */
+}
+
+.linkBoxes .box {
+    min-width: 140px; /* Ancho mínimo por columna */
+    list-style: none;
+    padding: 0;
+}
+
+.linkName {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color-light); /* Línea debajo del título */
+    padding-bottom: 5px;
+}
+
+.linkBoxes .box li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+.linkBoxes .box li a {
+    color: var(--primary-color);
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.85; /* Ligera transparencia */
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.linkBoxes .box li a:hover {
+    opacity: 1; /* Opacidad completa en hover */
+    text-decoration: underline;
+}
+
+/* 4. Estilos de la Caja de Suscripción (Input Box) - (Opcional) */
+.inputBox {
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputBox input[type="email"] {
+    padding: 10px 15px;
+    border: 2px solid var(--primary-color-light);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--primary-color);
+    background: var(--body-color);
+    transition: border-color 0.3s ease;
+}
+
+.inputBox input[type="email"]::placeholder {
+    color: var(--primary-color-light);
+}
+
+.inputBox input[type="email"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.inputBox input[type="button"] {
+    padding: 10px 15px;
+    background: var(--primary-color);
+    color: var(--body-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.inputBox input[type="button"]:hover {
+    background: var(--primary-color-light);
+    color: var(--primary-color);
+}
+
+/* 5. Sección Inferior del Footer (Copyright y Términos) */
+.bottomDetails {
+    margin-top: 40px;
+    border-top: 1px solid var(--primary-color-light);
+    padding: 20px 30px 0;
+    font-size: 13px;
+    color: var(--primary-color-light); /* Color principal para esta sección */
+    font-weight: 300;
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: center;
+    flex-wrap: wrap; /* El texto se envuelve */
+    gap: 20px;
+    text-align: center;
+}
+
+.bottomText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 🛑 AJUSTE: Reduce el gap para juntar los elementos de copyright */
+    gap: 5px; 
+    width: 100%;
+    max-width: 1200px;
+    color: var(--primary-color-light);
+    /* 🛑 CLAVE: Permitir que el texto se envuelva */
+    white-space: normal;
+    text-align: center;
+}
+
+.bottomText span,
+.bottomText a {
+    /* 🛑 CLAVE: Permitir que el texto se envuelva y rompa */
+    white-space: normal; 
+    color: var(--primary-color); 
+    text-decoration: none;
+    display: inline;
+    word-break: break-word; /* Rompe palabras largas dentro del span/a */
+    overflow-wrap: break-word;
+}
+
+.bottomText a:hover {
+    text-decoration: underline;
+}
+
+.policyTerms a {
+    margin-left: 15px; /* Espacio entre enlaces de política */
+}
+
+/* 6. Media Queries para Responsividad */
+
+@media (max-width: 768px) {
+    .content {
+        padding: 0 15px; 
+        gap: 30px;
+    }
+    
+    .linkBoxes {
+        flex-basis: 100%; 
+        justify-content: space-around; 
+        gap: 20px;
+        order: 3; 
+    }
+
+    .linkBoxes .box {
+        min-width: 45%; 
+    }
+
+    .bottomDetails {
+        padding: 15px 10px 0;
+    }
+    
+    .bottomText {
+        padding: 0 5px;
+        gap: 5px;
+        justify-content: center;
+        text-align: center;
+    }
+    /* 🛑 AJUSTE FINAL PARA MÓVILES: Forzar que los elementos del copyright se separen */
+    .bottomText span,
+    .bottomText a {
+        display: block; 
+        padding: 2px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        flex-direction: column; 
+    }
+
+    .top {
+        flex-basis: auto;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .logoDetails {
+        justify-content: center;
+    }
+
+    .linkBoxes {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .linkBoxes .box {
+        min-width: 80%; 
+        text-align: center; 
+    }
+    
+    .linkName {
+        width: fit-content;
+        margin: 0 auto 15px;
+    }
+    
+    .bottomDetails {
+        font-size: 12px;
+    }
+    
+    .bottomText {
+        word-wrap: break-word;
+    }
+    
+    /* Forzamos la separación total de los elementos de copyright */
+    .bottomText span,
+    .bottomText a {
+        display: block; 
+        padding: 2px 0;
+    }
+}

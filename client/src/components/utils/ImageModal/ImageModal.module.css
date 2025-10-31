@@ -1,0 +1,124 @@
+/*
+ * =============================================
+ * Archivo: client/src/utils/ImageModal/ImageModal.module.css
+ * Descripción: Estilos para el componente ImageModal.
+ * Define el overlay, el contenedor de la imagen, el botón de cerrar y el botón de descarga.
+ * Autor: Dilan Baltras | Fecha: 2025-06-26
+ * =============================================
+ */
+
+/* Overlay del modal: cubre toda la pantalla y oscurece el fondo */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Asegura que esté por encima de todo */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+}
+
+/* Contenido del modal: contenedor de la imagen y los botones */
+.modalContent {
+    position: relative;
+    max-width: 98vw; /* Ancho máximo aumentado al 98% del viewport */
+    max-height: 98vh; /* Altura máxima aumentada al 98% del viewport */
+    background-color: var(--body-color); /* Color de fondo del tema */
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+    overflow: hidden; /* Asegura que la imagen no desborde si es muy grande */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px; */ /* Se ha eliminado el padding para maximizar el tamaño de la imagen */
+}
+
+/* Imagen dentro del modal */
+.modalImage {
+    max-width: 100%; /* Ajusta la imagen al ancho máximo del modalContent */
+    max-height: 100%; /* Ajusta la imagen a la altura máxima del modalContent */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    object-fit: contain; /* Asegura que la imagen completa sea visible sin recortar */
+    border-radius: 5px; /* Bordes ligeramente redondeados para la imagen */
+}
+
+/* Botón de cerrar el modal */
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Posicionado a la derecha */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    color: var(--primary-color); /* Color principal del tema */
+    border: none;
+    border-radius: 50%; /* Botón circular */
+    width: 40px;
+    height: 40px;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+    background-color: var(--primary-color-light); /* Color de acento al pasar el ratón */
+    color: white; /* Texto blanco al pasar el ratón */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}
+
+/* NUEVO: Estilos para el botón de descargar */
+.downloadButton {
+    position: absolute;
+    top: 10px;
+    right: 60px; /* CAMBIO: Posicionado a la izquierda del botón de cerrar */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    color: var(--primary-color); /* Color principal del tema */
+    border: none;
+    border-radius: 50%; /* Botón circular */
+    width: 40px;
+    height: 40px;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Asegura que no tenga subrayado de enlace */
+}
+
+.downloadButton:hover {
+    background-color: var(--primary-color-light); /* Color de acento al pasar el ratón */
+    color: white; /* Texto blanco al pasar el ratón */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}
+
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .modalContent {
+        padding: 0; /* Asegura que no haya padding en pantallas pequeñas tampoco */
+    }
+    .closeButton {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5em;
+        top: 5px;
+        right: 5px;
+    }
+    .downloadButton { /* Ajuste para móviles */
+        width: 35px;
+        height: 35px;
+        font-size: 1.5em;
+        top: 5px;
+        right: 50px; /* Ajusta la posición para móviles */
+    }
+}

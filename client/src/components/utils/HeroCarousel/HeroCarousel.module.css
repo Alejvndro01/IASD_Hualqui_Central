@@ -1,0 +1,229 @@
+/*
+* =============================================
+* Archivo: HeroCarousel.module.css
+* Descripción: Estilos para el componente de carrusel tipo "Hero".
+* Autor: Dilan Baltras | Fecha: 2025-10-20 (Actualizado para el estilo Destaque)
+* =============================================
+*/
+
+/* 0. Nuevo Contenedor Envolvente */
+.heroWrapper {
+    width: 100%;
+    /* Se ajustará al contenedor padre, pero permite centrar elementos dentro */
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+/* 1. Sección Principal del Carrusel (Hero) */
+.heroCarouselSection {
+    width: 100%;
+    /* 🛑 CAMBIO: Reducimos la altura a un tamaño más compacto y quitamos el padding superior */
+    height: 500px; 
+    overflow: hidden;
+    position: relative;
+    padding-top: 0; /* Antes 50px */
+}
+
+/* 🛑 TÍTULO GLOBAL "Nuestros Ministerios" (AHORA ESTILO DE SECCIÓN) */
+.carouselTitle {
+    /* 🛑 CAMBIO: Se convierte a un título de bloque normal (no superpuesto) */
+    position: relative; /* Antes absolute */
+    top: auto; /* Antes 0 */
+    left: auto; /* Antes 0 */
+
+    /* Adaptamos el estilo al título "Destaque" */
+    padding: 10px 0 10px 30px; 
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color, #1a237e);
+    z-index: 1; /* Antes 5 */
+    text-align: left; /* Aseguramos alineación izquierda */
+
+    /* 🛑 NUEVO: Borde decorativo similar al de "Destaque" */
+    border-left: 5px solid var(--ui-accent-color, #f9a825); /* Se asume un color de acento */
+    margin-bottom: 20px; /* Espacio antes del carrusel */
+    max-width: 1200px; /* Para que la línea no ocupe todo el ancho */
+}
+
+/* 2. Diapositiva Individual del Hero */
+.heroSlide {
+    position: relative;
+    /* 🛑 CAMBIO: Ajustamos la altura del slide */
+    height: 500px; /* Antes 600px */
+    display: flex !important; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #fff; 
+    text-align: left;
+    cursor: grab; 
+}
+
+.heroSlide:active {
+    cursor: grabbing;
+}
+
+/* 3. Imagen de Fondo de la Diapositiva */
+.heroSlideImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+}
+
+/* 4. Superposición (Overlay) de la Diapositiva */
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 2; 
+}
+
+/* 5. Contenido del Hero (Título, Descripción, Botón) */
+/* Anclamos el contenido del slide a la esquina superior izquierda */
+.heroContent {
+    position: absolute; 
+    /* 🛑 CAMBIO: Empuja el contenido más arriba para un aspecto de banner */
+    top: 10%; /* Antes 15% */
+    left: 5%; 
+    z-index: 3; 
+    max-width: 600px; 
+    padding: 0;
+    text-align: left;
+}
+
+.heroTitle {
+    /* 🛑 CAMBIO: Reducimos el tamaño */
+    font-size: 2.5em; /* Antes 3.5em */
+    font-weight: bold;
+    margin-bottom: 5px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    line-height: 1.2;
+}
+
+.heroDescription {
+    /* 🛑 CAMBIO: Reducimos el tamaño de la fuente y el margen */
+    font-size: 1.2em; /* Antes 1.5em */
+    margin-bottom: 30px; /* Antes 40px */
+    line-height: 1.5;
+    max-width: 90%; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+/* 6. Botón del Hero */
+.heroButton {
+    display: inline-block;
+    /* 🛑 CAMBIO: Ajustamos el padding y tamaño del botón */
+    padding: 12px 25px; /* Antes 15px 30px */
+    background-color: var(--ui-accent-color); 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1em; /* Antes 1.2em */
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.heroButton:hover {
+    background-color: var(--ui-accent-hover);
+}
+
+/* 7. Ajustes a los Puntos de Navegación de Slick (Dots) */
+.heroCarouselSection .slick-dots {
+    bottom: 20px; 
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.heroCarouselSection .slick-dots li button:before {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+}
+
+.heroCarouselSection .slick-dots li.slick-active button:before {
+    color: #fff;
+}
+
+.heroCarouselSection .slick-dots li div {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.heroCarouselSection .slick-dots li.slick-active div {
+    background: #fff;
+    border-color: var(--ui-accent-color);
+}
+
+/* 8. Media Queries para Responsividad */
+@media (max-width: 1024px) {
+    .heroCarouselSection {
+        padding-top: 0; /* Antes 40px */
+    }
+    .carouselTitle {
+        padding: 5px 0 10px 20px;
+    }
+    .heroContent {
+        top: 8%; /* Ajuste por altura del slide */
+        left: 3%;
+        max-width: 90%;
+    }
+    .heroSlide {
+        height: 450px; /* Antes 500px */
+    }
+    .heroTitle {
+        font-size: 2.2em; /* Antes 2.8em */
+    }
+    .heroDescription {
+        font-size: 1.1em; /* Antes 1.3em */
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroCarouselSection {
+        padding-top: 0; /* Antes 30px */
+    }
+    .carouselTitle {
+        font-size: 1.5em;
+        padding: 5px 0 10px 15px;
+    }
+    .heroContent {
+        top: 50px; /* Ajuste para el nuevo layout */
+        left: 5%;
+        max-width: 90%;
+    }
+    .heroSlide {
+        height: 350px; /* Antes 400px */
+    }
+    .heroTitle {
+        font-size: 1.8em; /* Antes 2em */
+    }
+    .heroDescription {
+        font-size: 0.9em; /* Antes 1em */
+        margin-bottom: 15px; /* Antes 20px */
+    }
+    .heroButton {
+        padding: 10px 20px; /* Antes 12px 25px */
+        font-size: 0.9em; /* Antes 1em */
+    }
+    .slick-prev, .slick-next {
+        display: none !important; 
+    }
+    .heroCarouselSection .slick-dots {
+        bottom: 10px; 
+    }
+}

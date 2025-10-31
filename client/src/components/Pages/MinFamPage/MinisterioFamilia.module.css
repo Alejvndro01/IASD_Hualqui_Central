@@ -1,0 +1,704 @@
+/* 1. Contenedor Principal */
+.ministerioDeLaFamiliaContainer {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ui-text-secondary);
+    background-color: var(--body-bg-gradient-end);
+    line-height: 1.6;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 2. Encabezado del Ministerio de la Familia (HEADER) */
+.ministerioDeLaFamiliaHeader {
+    background-color: var(--primary-color); /* Color principal del tema */
+    color: #fff;
+    padding: 80px 30px 50px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2.1. Imagen de Fondo Sutil para el Header (Ajustar ruta de imagen) */
+.ministerioDeLaFamiliaHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* RUTA: Reemplazar con la imagen de fondo para el Ministerio de la Familia */
+    background-image: url('../../../../public/Images/Min-Familia.jpg'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    z-index: 0;
+    filter: grayscale(100%);
+}
+
+/* 2.2. Contenido del Header */
+.headerContent {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+/* 2.3. Subtítulo del Header */
+.headerSubtitle {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--ui-accent-color);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 2.4. Título Principal del Header */
+.headerTitle {
+    font-size: 3.8em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* 2.5. Estilo del "span" en el Título */
+.headerTitle span {
+    font-weight: 300;
+    color: #fff;
+}
+
+/* 3. Barra de Navegación Interna */
+.headerNav {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px 70px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 3.1. Lista de Elementos de Navegación */
+.headerNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3.2. Enlaces de Navegación */
+.headerNav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* 3.3. Efecto Hover en Enlaces */
+.headerNav ul li a:hover {
+    color: var(--ui-accent-color);
+    transform: translateY(-2px);
+}
+
+/* 3.4. Línea de Subrayado de Enlaces */
+.headerNav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: var(--ui-accent-color);
+    transition: width 0.3s ease;
+}
+
+/* 3.5. Expansión de Subrayado al Hover */
+.headerNav ul li a:hover::after {
+    width: 100%;
+}
+
+/* 4. Área de Contenido Principal de Recursos */
+.resourceContentArea {
+    max-width: 100%;
+    width: 95%;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: var(--ui-bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 5. Encabezados de Sección Generales */
+.sectionHeading {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--ui-text-primary);
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    border-left: 5px solid var(--ui-accent-color);
+    padding-left: 15px;
+}
+
+/* 5.1. Ícono en el Título de Sección */
+.sectionHeading i {
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+/* 6. Sección de Destaque */
+.highlightSection {
+    margin-bottom: 40px;
+    
+}
+
+/* 6.1. Tarjeta de Destaque */
+.highlightCard {
+    display: flex;
+    background-color: var(--ui-bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* 6.2. Imagen de Destaque */
+.highlightImage {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 6.3. Detalles de Destaque */
+.highlightDetails {
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--secondary-color);
+    color: var(--ui-text-primary);
+}
+
+/* 6.4. Título de Destaque */
+.highlightTitle {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* 6.5. Descripción de Destaque */
+.highlightDescription {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--ui-text-secondary);
+}
+
+/* 6.6. Enlace "Ver Más" de Destaque */
+.highlightLink {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--ui-accent-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* 6.7. Efecto Hover en Enlace "Ver Más" */
+.highlightLink:hover {
+    background-color: var(--ui-accent-hover);
+}
+
+/* 7. Secciones de Categorías de Recursos */
+.categorySection {
+    margin-top: 40px;
+}
+
+/* 7.1. Grilla de Recursos */
+.resourceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* 7.2. Ítem de Recurso Individual */
+.resourceItem {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ui-bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+/* 7.3. Clase para hacer clickeable la tarjeta de video/audio */
+.videoClickable {
+    cursor: pointer; 
+}
+
+/* 7.4. Efecto Hover en Ítem de Recurso */
+.resourceItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 7.5. Miniatura del Recurso */
+.resourceThumbnail {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+/* 7.6. Información del Recurso */
+.resourceInfo {
+    padding: 15px 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 7.7. Título del Recurso */
+.resourceTitle {
+    font-size: 1.15em;
+    font-weight: 600;
+    color: var(--ui-text-primary);
+    margin-bottom: 10px; 
+}
+
+/* 7.8. Subtítulo de Recurso (si se usa en esta página) */
+.resourceSubtitle {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: var(--ui-text-secondary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* 7.9. Enlace del Recurso */
+.resourceLink {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--ui-accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+/* 7.10. Botón de Reproducción dentro de la tarjeta (si se usa en esta página) */
+.playResourceButton {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--ui-accent-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    gap: 8px;
+}
+
+/* 7.11. Hover en Botón de Reproducción */
+.playResourceButton:hover {
+    background-color: var(--ui-accent-hover);
+}
+
+/* 7.12. Ícono de Flecha en Enlaces */
+.arrowIcon {
+    margin-left: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+
+/* 8. Sección de Archivos del Ministerio (Dinámica) */
+.section {
+    padding: 40px;
+    background-color: var(--ui-bg-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+/* (Resto de estilos de Archivos se mantienen igual) */
+.filesControlBar {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.uploadButton {
+    background-color: var(--ui-accent-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.uploadButton:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.uploadButton i {
+    font-size: 1.2em;
+}
+
+.loadingContainer,
+.errorContainer,
+.noFilesMessage {
+    padding: 20px;
+    background-color: var(--ui-bg-secondary);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--ui-text-secondary);
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 100px;
+}
+
+.errorContainer {
+    background-color: #ffebeb;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+}
+
+.loadingContainer i,
+.errorContainer i,
+.noFilesMessage i {
+    font-size: 1.5em;
+}
+
+.fileList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 15px;
+}
+
+.fileItem {
+    display: flex;
+    align-items: center;
+    background-color: var(--ui-bg-primary);
+    border: 1px solid var(--ui-border-color);
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fileItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.fileIcon {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-right: 15px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.fileDetails {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.fileName {
+    font-weight: 600;
+    color: var(--ui-text-primary);
+    font-size: 1.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.fileMinistry,
+.fileUploadDate {
+    font-size: 0.85em;
+    color: var(--ui-text-secondary);
+}
+
+.fileActions {
+    display: flex;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.fileActions button,
+.fileActions a {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.6em;
+    color: var(--ui-icon-color);
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fileActions button:hover,
+.fileActions a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.fileActions .deleteButton {
+    color: var(--ui-button-danger-bg);
+}
+
+.fileActions .deleteButton:hover {
+    color: var(--ui-button-danger-hover);
+}
+
+.fileActions .editButton {
+    color: var(--ui-accent-color);
+}
+
+.fileActions .editButton:hover {
+    color: var(--ui-accent-hover);
+}
+
+
+/* 9. Media Queries para Responsividad */
+
+@media (max-width: 992px) {
+    .headerTitle {
+        font-size: 2.8em;
+    }
+    .headerSubtitle {
+        font-size: 1.4em;
+    }
+    .highlightCard {
+        flex-direction: column;
+    }
+    .highlightImage,
+    .highlightDetails {
+        width: 100%;
+    }
+    .highlightImage {
+        height: 250px;
+        border-radius: 10px 10px 0 0;
+    }
+    .highlightDetails {
+        padding: 25px;
+        align-items: center;
+    }
+    .highlightTitle {
+        font-size: 2em;
+        text-align: center;
+    }
+    .highlightDescription {
+        font-size: 1em;
+        text-align: center;
+    }
+    .sectionHeading {
+        font-size: 2em;
+    }
+    .headerNav ul {
+        gap: 20px;
+        padding: 0 15px;
+    }
+    .headerNav ul li a {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerTitle {
+        font-size: 2.2em;
+    }
+    .headerSubtitle {
+        font-size: 1.2em;
+    }
+    .sectionHeading {
+        font-size: 1.8em;
+        padding-left: 15px;
+    }
+    .resourceContentArea {
+        margin: 40px auto;
+        padding: 15px;
+        /* CLAVE: Ocupar el 100% del ancho */
+        width: 100%; 
+    }
+    .highlightDetails {
+        padding: 20px;
+    }
+    .highlightTitle {
+        font-size: 1.8em;
+    }
+    .highlightDescription {
+        font-size: 0.9em;
+    }
+    .resourceThumbnail {
+        height: 160px;
+    }
+    .resourceTitle {
+        font-size: 1em;
+    }
+    .ministerioDeLaFamiliaHeader {
+        padding: 60px 20px 40px;
+    }
+    .headerNav {
+        padding: 10px 20px;
+    }
+    .headerNav ul {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap; /* Evita que los ítems se apilen */
+    }
+    .headerNav ul::-webkit-scrollbar {
+        display: none;
+    }
+    /* Ajustes de la lista de archivos para apilamiento vertical */
+    .filesControlBar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .uploadButton {
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+    }
+    
+    /* 🔑 CORRECCIÓN: Visibilidad del botón Ver (Asegurar que se muestre) */
+    .fileActions .viewButton {
+        /* Revertimos la ocultación de pasos anteriores */
+        display: flex !important; 
+    }
+    
+    /* 🔑 CORRECCIONES EN EL ITEM DE ARCHIVO (LISTA) */
+    .fileItem {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 10px; /* Reducir padding horizontal */
+        width: 100%; /* Asegura que la tarjeta ocupe el 100% */
+        box-sizing: border-box; /* Incluye padding en el width */
+    }
+
+    .fileDetails {
+        width: 100%;
+        margin-bottom: 10px;
+        /* IMPORTANTE: Permite que el nombre largo del archivo se trunque */
+        min-width: 0; 
+    }
+
+    .fileName {
+        /* CLAVE: Permitimos que el texto se envuelva */
+        white-space: normal; 
+        overflow: hidden;
+        /* text-overflow: ellipsis; <-- Se elimina para permitir el wrap */
+        max-width: 100%; 
+        word-break: break-word; /* Fuerza la división si el nombre es una sola palabra muy larga */
+    }
+    
+    .fileIcon {
+        /* Manejo de la previsualización de la imagen */
+        margin-bottom: 10px;
+        margin-right: 0;
+        min-width: unset;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Ajustes para los botones de acción (4 BOTONES) */
+    .fileActions {
+        width: 100%; 
+        /* CLAVE: Usamos space-around o space-between para distribuir los 4 botones */
+        justify-content: space-around; 
+        /* Reducimos el margen y padding para ahorrar espacio */
+        gap: 5px; 
+        padding: 0 5px; /* Reducir aún más el padding horizontal */
+        margin-top: 10px;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Aseguramos que los botones se compriman un poco para hacer espacio a 4 */
+    .fileActions button,
+    .fileActions a {
+        flex-grow: 1;
+        font-size: 1.5em; /* Ligeramente más pequeños si es necesario */
+        padding: 5px;
+    }
+}
+
+/* 9.3. Ajustes para Pantallas Muy Pequeñas (Smartphones Pequeños) */
+@media (max-width: 480px) {
+    .headerTitle {
+        font-size: 1.8em;
+    }
+    .headerSubtitle {
+        font-size: 1em;
+    }
+    .highlightTitle {
+        font-size: 1.5em;
+    }
+    .highlightDescription {
+        font-size: 0.85em;
+    }
+    .resourceGrid {
+        grid-template-columns: 1fr;
+    }
+    .resourceContentArea {
+        /* Aseguramos que el contenido principal ocupe todo el ancho */
+        width: 100%;
+        margin: 40px 0;
+        padding: 15px 10px;
+    }
+}

@@ -1,0 +1,301 @@
+/*
+ * =============================================
+ * Archivo: VideoPlayer.module.css
+ * Descripción: Estilos para el componente del reproductor de video.
+ * Define la apariencia del overlay, el modal, los controles,
+ * las barras de progreso/volumen y la responsividad.
+ * Autor: Dilan Baltras | Fecha: 2025-06-25
+ * =============================================
+ */
+
+/* 1. Estilos del Overlay del Reproductor */
+/* Fondo oscuro semitransparente que cubre toda la pantalla. */
+.playerOverlay {
+    position: fixed;
+    inset: 0; /* Cubre toda el área (top, right, bottom, left: 0) */
+    background-color: rgba(17, 24, 39, 0.75); /* Fondo oscuro con transparencia */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    z-index: 50; /* Por encima de la mayoría de los elementos */
+    padding: 1rem; /* Espaciado interno para pantallas pequeñas */
+}
+
+/* 2. Estilos del Modal del Reproductor */
+/* Contenedor principal del reproductor de video. */
+.playerModal {
+    background-color: var(--ui-bg-primary); /* Color de fondo del modal */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra */
+    padding: 1.25rem; /* Espaciado interno */
+    width: 100%;
+    max-width: 42rem; /* Ancho máximo */
+    overflow: hidden; /* Evita desbordamientos */
+    transition: background-color var(--tran-03); /* Transición suave del color de fondo */
+}
+
+/* 3. Encabezado del Modal */
+/* Contiene el título del reproductor y el botón de cierre. */
+.modalHeader {
+    display: flex;
+    justify-content: space-between; /* Espacio entre título y botón */
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modalTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ui-text-primary); /* Color del texto del título */
+    transition: color var(--tran-03);
+}
+
+/* Botón de Cerrar */
+.closeButton {
+    color: var(--ui-icon-color); /* Color del icono de cierre */
+    padding: 0.25rem;
+    border-radius: 9999px; /* Botón redondo */
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color var(--tran-03);
+}
+
+.closeButton:hover {
+    color: var(--ui-icon-hover); /* Color del icono al pasar el ratón */
+}
+
+.closeButton:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Anillo de enfoque */
+}
+
+.closeButton .fas,
+.closeButton .bx,
+.closeButton .fa {
+    font-size: 1.25rem; /* Tamaño del icono */
+}
+
+/* 4. Contenedor de Video */
+/* Estilos para el contenedor del elemento de video y su relación de aspecto. */
+.videoContainer {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (altura / ancho * 100) */
+    background-color: var(--ui-media-background); /* Color de fondo para el área del video */
+    border-radius: 0.375rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.videoElement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* El video se ajusta dentro del contenedor sin recortarse */
+}
+
+/* 5. Grupo de Controles de Reproducción */
+/* Controles principales: reproducir, pausar, detener y descargar. */
+.controlsGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Espacio entre botones */
+    margin-bottom: 1rem;
+}
+
+.controlButton {
+    padding: 0.75rem;
+    background-color: var(--ui-accent-color); /* Color de fondo principal de los botones */
+    color: white; /* Color fijo del texto/icono del botón */
+    border-radius: 9999px; /* Botón redondo */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color var(--tran-03), box-shadow 0.2s ease-in-out;
+}
+
+.controlButton:hover {
+    background-color: var(--ui-accent-hover); /* Color de fondo al pasar el ratón */
+}
+
+.controlButton:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5), 0 0 0 4px rgba(99, 102, 241, 0.25); /* Anillo de enfoque */
+}
+
+/* Variantes de color para botones de control */
+.controlButton.red {
+    background-color: var(--ui-button-danger-bg);
+}
+.controlButton.red:hover {
+    background-color: var(--ui-button-danger-hover);
+}
+.controlButton.red:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5), 0 0 0 4px rgba(239, 68, 68, 0.25);
+}
+
+.controlButton.gray {
+    background-color: var(--ui-button-neutral-bg);
+}
+.controlButton.gray:hover {
+    background-color: var(--ui-button-neutral-hover);
+}
+.controlButton.gray:focus {
+    box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.5), 0 0 0 4px rgba(107, 114, 128, 0.25);
+}
+
+.controlButton .fas,
+.controlButton .bx,
+.controlButton .fa {
+    font-size: 1.5rem; /* Tamaño del icono */
+}
+
+/* 6. Barra de Progreso del Contenido */
+/* Estilos para el slider de tiempo de reproducción y la visualización del tiempo. */
+.progressBarContainer {
+    flex: 1; /* Ocupa el espacio disponible */
+    margin-bottom: 0.75rem;
+}
+
+.progressBar {
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--ui-slider-track-bg); /* Color del fondo de la barra */
+    border-radius: 0.5rem;
+    -webkit-appearance: none; /* Eliminar estilos nativos (WebKit) */
+    appearance: none; /* Eliminar estilos nativos */
+    cursor: pointer;
+    outline: none;
+    accent-color: var(--ui-slider-accent); /* Color del progreso */
+}
+
+/* Estilo del "thumb" (indicador arrastrable) para navegadores WebKit */
+.progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--ui-slider-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    margin-top: -6px; /* Ajuste para centrar */
+    border: none;
+}
+
+/* Estilo del "thumb" para Firefox */
+.progressBar::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--ui-slider-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    border: none;
+}
+
+.timeDisplay {
+    display: flex;
+    justify-content: space-between; /* Alinea tiempo actual e.g. 00:00 - 00:00 */
+    font-size: 0.75rem;
+    color: var(--ui-icon-color); /* Color del texto de tiempo */
+    margin-top: 0.25rem;
+    transition: color var(--tran-03);
+}
+
+/* 7. Control de Volumen y Pantalla Completa */
+/* Estilos para el botón de silenciar, el slider de volumen y el botón de pantalla completa. */
+.volumeFullscreenGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre elementos */
+    margin-top: 0.75rem;
+}
+
+.volumeMuteButton {
+    padding: 0.5rem;
+    color: var(--ui-icon-color); /* Color del icono de mute */
+    border-radius: 9999px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    transition: color var(--tran-03);
+}
+
+.volumeMuteButton:hover {
+    color: var(--ui-icon-hover); /* Color del icono de mute al pasar el ratón */
+}
+
+.volumeMuteButton:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Anillo de enfoque */
+}
+
+.volumeMuteButton .fas,
+.volumeMuteButton .bx,
+.volumeMuteButton .fa {
+    font-size: 1.25rem; /* Tamaño del icono */
+}
+
+.volumeSlider {
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--ui-slider-track-bg); /* Color del fondo de la barra de volumen */
+    border-radius: 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    accent-color: var(--ui-slider-accent); /* Color del progreso del volumen */
+}
+
+/* Estilo del "thumb" del volumen para navegadores WebKit */
+.volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--ui-slider-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    margin-top: -5px; /* Ajuste para centrar */
+    border: none;
+}
+
+/* Estilo del "thumb" del volumen para Firefox */
+.volumeSlider::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--ui-slider-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    border: none;
+}
+
+.fullscreenButton {
+    padding: 0.5rem;
+    color: var(--ui-icon-color); /* Color del icono de pantalla completa */
+    border-radius: 9999px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    transition: color var(--tran-03);
+}
+
+.fullscreenButton:hover {
+    color: var(--ui-icon-hover); /* Color del icono de pantalla completa al pasar el ratón */
+}
+
+.fullscreenButton:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Anillo de enfoque */
+}
+
+.fullscreenButton .fas,
+.fullscreenButton .bx,
+.fullscreenButton .fa {
+    font-size: 1.25rem; /* Tamaño del icono */
+}

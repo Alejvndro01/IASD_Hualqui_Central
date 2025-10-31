@@ -1,0 +1,19 @@
+# Ignorar dependencias
+node_modules
+server/node_modules
+client/node_modules
+
+# Ignorar archivos de entorno (¡MUY IMPORTANTE!)
+.env
+client/.env
+
+# Ignorar archivos de Build
+client/build
+
+# Ignorar subidas locales del servidor
+server/uploads
+
+# Archivos de sistema operativo y VS Code
+.DS_Store
+Thumbs.db
+.vscode/

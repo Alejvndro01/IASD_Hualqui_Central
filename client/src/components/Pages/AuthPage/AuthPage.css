@@ -1,0 +1,435 @@
+/*
+ * =============================================
+ * Archivo: AuthPage.css
+ * Descripción: Estilos para la página de autenticación (Login/Registro) con transiciones animadas.
+ * =============================================
+ */
+
+/* 1. Contenedor Principal (Login / Registro) */
+.container {
+    background-color: var(--body-color);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(12, 35, 64, 0.35);
+    position: relative;
+    overflow: hidden;
+    /* CLAVE: Permitir que el ancho sea 100% y establecer un max-width para escritorio */
+    width: 768px;
+    max-width: 90%;
+    min-height: 650px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Estilos de Texto dentro del Contenedor (Sin cambios) */
+.container p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+    color: var(--text-color);
+}
+
+.container span {
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.container a {
+    color: var(--primary-color);
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    transition: color 0.3s ease;
+}
+
+.container a:hover {
+    color: var(--primary-color-light);
+}
+
+/* 3. Estilos de Botones (Sin cambios) */
+.container button {
+    background-color: #b59539;
+    color: var(--body-color);
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 2px 5px rgba(207, 174, 98, 0.5);
+}
+
+.container button:hover {
+    background-color: var(--primary-color-light);
+    border: 1px solid var(--body-color);
+}
+
+/* Estilos específicos para botones con la clase "hidden" (paneles de toggle). */
+.container button.hidden {
+    background-color: var(--primary-color-light);
+    border: 1px solid #4a4a4a;
+    box-shadow: 0 2px 5px rgba(12, 35, 64, 0.4);
+    color: var(--body-color);
+}
+
+.container button.hidden:hover {
+    background-color: #b59539;
+    color: var(--body-color);
+}
+
+/* 4. Estilos de Formularios e Inputs (Sin cambios) */
+.container form {
+    background-color: var(--body-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 100%;
+    color: var(--text-color);
+}
+
+.container input {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+.container input:focus {
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px var(--primary-color-light);
+}
+
+/* 5. Estilos del Selector (Dropdown) (Sin cambios) */
+.form-select {
+    background-color: #eee;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    color: var(--primary-color);
+    background-position: right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+/* 6. Animaciones y Posicionamiento de Formularios (Estilos de Escritorio) */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .sign-in {
+    transform: translateX(100%);
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/* 7. Panel de Alternancia (Toggle Panel) (Estilos de Escritorio) */
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    background: linear-gradient(to right, var(--primary-color-light), #b59539);
+    color: var(--body-color);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transition: all 1s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right {
+    transform: translateX(200%);
+}
+
+/* 8. Iconos Sociales (Sin cambios) */
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+/* 9. Estilo para el Botón de Administrador (Sin cambios) */
+.admin-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* =========================================== */
+/* 🔑 MEDIA QUERY: RESPONSIVIDAD MÓVIL (Versión Vertical) */
+/* =========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Contenedor Principal: Flujo vertical */
+    .container {
+        width: 100%;
+        max-width: 95%;
+        margin: 30px auto;
+        min-height: auto;
+        height: auto; 
+        flex-direction: column;
+        border-radius: 10px;
+    }
+
+    /* 2. Toggle Container (Panel Dorado) */
+    .toggle-container {
+        position: relative; 
+        width: 100%;
+        height: 150px; 
+        left: 0;
+        transform: translateX(0) !important; 
+        border-radius: 10px 10px 0 0 !important; 
+        z-index: 1;
+        order: -1; 
+    }
+
+    /* Anular animaciones internas del toggle */
+    .toggle {
+        width: 100%;
+        left: 0;
+        transform: translateX(0) !important;
+        transition: none;
+    }
+
+    /* Paneles individuales dentro del toggle */
+    .toggle-panel {
+        position: static; 
+        width: 100%;
+        height: 100%;
+        transform: translateX(0) !important;
+        /* CLAVE: Reducir padding superior para subir el contenido */
+        padding: 10px 20px; 
+        transition: none;
+    }
+
+    /* Estilos del texto en el toggle para móvil */
+    .toggle-panel h1 {
+        font-size: 1.5em;
+        /* CLAVE: Reducir margen superior para acercar el título al borde */
+        margin-top: 5px; 
+        margin-bottom: 5px;
+    }
+    .toggle-panel p {
+        display: block; 
+        margin: 5px 0 10px;
+    }
+
+    /* 🔑 CLAVE: Ocultar los botones de alternancia en los paneles que NO son visibles */
+    .toggle-panel .hidden {
+        display: none !important; 
+    }
+
+    /* 4. VISIBILIDAD DE CONTENIDO DEL PANEL DORADO */
+    
+    /* Por defecto (Login, container NO activo): Mostrar el mensaje de Registro (toggle-right) */
+    .toggle-left { /* Panel de Login */
+        display: none !important;
+    }
+    .toggle-right { /* Panel de Registro */
+        display: block !important;
+    }
+
+    /* Cuando el contenedor está activo (Registro): Mostrar el mensaje de Login (toggle-left) */
+    .container.active .toggle-left {
+        display: block !important;
+    }
+    .container.active .toggle-right {
+        display: none !important; 
+    }
+    
+    /* 🔑 CLAVE: Muestra el botón de alternancia en el panel que está VISIBLE */
+    .toggle-right .hidden { 
+        display: inline-block !important;
+        background-color: rgba(255, 255, 255, 0.25) !important;
+        border: 1px solid white;
+    }
+    
+    .container.active .toggle-left .hidden { 
+        display: inline-block !important;
+        background-color: rgba(255, 255, 255, 0.25) !important;
+        border: 1px solid white;
+    }
+    
+    .container.active .toggle-right .hidden { 
+        display: none !important;
+    }
+    
+    .toggle-left .hidden {
+        display: none !important;
+    }
+    
+    /* 3. Formularios (Sign In / Sign Up) */
+    .form-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        top: 0;
+        transition: none;
+        padding: 0;
+    }
+    
+    .sign-in,
+    .sign-up {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        position: relative; 
+        padding: 20px 0;
+        transform: none !important; 
+        animation: none !important; 
+    }
+    
+    /* 🔑 AJUSTE DEL BOTÓN PRINCIPAL DENTRO DEL FORMULARIO */
+    .container .form-container button {
+        margin-top: 15px; /* Reducir margen superior un poco más */
+        padding: 12px 60px; 
+        font-size: 14px;
+    }
+
+
+    /* 4. Alternar Visibilidad del Formulario */
+    
+    /* Mostrar Sign In (Login) por defecto */
+    .sign-in { 
+        display: block; 
+        z-index: 2;
+    }
+    /* Ocultar Sign Up (Registro) por defecto */
+    .sign-up { 
+        display: none; 
+        z-index: 1;
+    }
+
+    /* Cuando el contenedor está activo (Registro) */
+    .container.active .sign-in {
+        display: none; 
+    }
+    .container.active .sign-up {
+        display: block; 
+    }
+    
+    /* Asegurarse de que el input de email/contraseña sea más grande */
+    .container form {
+        padding: 0 20px;
+    }
+    .container form h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* Ajustes adicionales para la barra de iconos sociales en móvil */
+@media (max-width: 480px) {
+    .container form {
+        padding: 0 15px;
+    }
+    .social-icons {
+        margin: 10px 0;
+    }
+}

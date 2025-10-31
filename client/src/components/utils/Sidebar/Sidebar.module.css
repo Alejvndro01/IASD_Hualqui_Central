@@ -1,0 +1,449 @@
+/*
+ * =============================================
+ * Archivo: Sidebar.module.css
+ * Descripción: Estilos para el componente de la barra lateral de navegación.
+ * Define la apariencia y comportamiento visual del sidebar, incluyendo
+ * estados de abierto/cerrado y menús desplegables.
+ * Autor: Dilan Baltras | Fecha: 2025-06-25 (Actualizado: 2025-10-20)
+ * =============================================
+ */
+
+/* 1. Estilos Base del Sidebar */
+/* Contenedor principal del sidebar. */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* Ancho por defecto (abierto) */
+    padding: 10px 14px;
+    background: var(--sidebar-color); /* Variable global de color */
+    transition: var(--tran-05); /* Transición para apertura/cierre */
+    z-index: 100;
+}
+
+/* Estado: Sidebar cerrado */
+.close {
+    width: 88px; /* Ancho cuando está cerrado */
+}
+
+/* Estilos para elementos de lista genéricos dentro del sidebar */
+.sidebar li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* 2. Encabezado del Sidebar */
+/* Contiene el logo, texto del título y el botón de toggle. */
+.sidebar header {
+    position: relative;
+}
+
+.imageText {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    min-width: 60px; /* Espacio para el logo */
+    border-radius: 6px;
+}
+
+.sidebar header .image img {
+    width: 40px; /* Tamaño del logo */
+    border-radius: 6px;
+}
+
+/* Iconos de navegación y encabezado */
+.icon {
+    min-width: 30px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--text-color); /* Color por defecto de los iconos */
+    transition: var(--tran-03);
+}
+
+/* Texto de enlaces y encabezado */
+.text {
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    opacity: 1;
+    color: var(--text-color); /* Color por defecto del texto */
+    transition: var(--tran-03);
+}
+
+/* Oculta el texto cuando el sidebar está cerrado */
+.close .text {
+    opacity: 0;
+}
+
+/* Estilo para el logo principal en .home (si es aplicable) */
+.home img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profession {
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón de toggle del sidebar */
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg); /* Flecha apuntando a la izquierda (cerrado) */
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+/* Gira el toggle cuando el sidebar está cerrado */
+.close .toggle {
+    transform: translateY(-50%) rotate(0deg); /* Flecha apuntando a la derecha (abierto) */
+}
+
+/* 3. Contenido Principal del Menú */
+/* Contiene la barra de búsqueda y los enlaces de navegación. */
+.menu {
+    margin-top: 40px;
+}
+
+.search-box {
+    border-radius: 6px;
+    background-color: var(--primary-color-light); /* Color de fondo claro */
+    cursor: pointer;
+    transition: var(--tran-05);
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 20px;
+    height: 50px;
+}
+
+.search-box .icon {
+    min-width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+    padding: 0 10px;
+    flex-grow: 1;
+}
+
+/* Estilos de los enlaces de navegación */
+.sidebar li a {
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+    padding-left: 20px;
+}
+
+/* Efecto hover en los enlaces */
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color); /* Cambia el color del icono y texto al pasar el ratón */
+}
+
+/* Estilo para el enlace activo (NavLink) */
+.sidebar li a.active {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a.active .icon,
+.sidebar li a.active .text {
+    color: var(--sidebar-color); /* Texto/Icono blanco para activo */
+}
+
+
+.menu-bar {
+    height: calc(100% - 80px); /* Altura de la sección de menú */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll; /* Habilita el scroll si el contenido es largo */
+}
+
+/* Oculta la barra de scroll en navegadores WebKit */
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 4. Sección Inferior del Sidebar */
+/* Contiene el enlace de cerrar sesión. */
+.bottom-content {
+    /* No hay estilos específicos aquí, solo contener elementos */
+}
+
+/* 5. Estilos para el Contenido Principal de la Aplicación */
+/* Ajusta la posición y el ancho del contenido principal con el sidebar. */
+.home {
+    position: absolute;
+    top: 0;
+    left: 250px; /* Coincide con el ancho del sidebar abierto */
+    width: calc(100% - 250px); /* Ocupa el espacio restante */
+    height: 100vh;
+    background-color: var(--body-color); /* Color de fondo del cuerpo */
+    transition: var(--tran-05); /* Transición suave */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+/* Ajusta el contenido principal cuando el sidebar está cerrado */
+.close ~ .home {
+    left: 88px; /* Coincide con el ancho del sidebar cerrado */
+    width: calc(100% - 88px); /* Ocupa el espacio restante */
+}
+
+/* 6. Estilos para el Menú Desplegable (Dropdown) */
+/* Estilos específicos para el submenú de "Ministerios". */
+.nav-link.has-dropdown {
+    position: relative;
+    padding-left: 0;
+}
+
+.dropdownToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    width: 100%;
+}
+
+/* Asegura que el ícono dentro del dropdownToggle no tenga un min-width excesivo */
+.dropdownToggle .icon {
+    min-width: 30px;
+}
+
+/* Estilos de hover y activo para el toggle del desplegable (Fondo Azul) */
+.dropdownToggle:hover,
+.dropdownToggle.active {
+    background-color: var(--primary-color);
+    /* 🛑 IMPORTANTE: Ya no necesitamos `color: var(--sidebar-color)` aquí,
+       porque cambiaremos el color de los elementos internos (.icon y .text) */
+}
+
+/* 🔑 CLAVE: Asegura que el ICONO y el TEXTO dentro del dropdownToggle cambien a BLANCO al hacer hover o al estar activo */
+.dropdownToggle:hover .icon,
+.dropdownToggle:hover .text,
+.dropdownToggle:hover .dropdownCaret,
+.dropdownToggle.active .icon,
+.dropdownToggle.active .text,
+.dropdownToggle.active .dropdownCaret {
+    color: var(--sidebar-color); /* Blanco, para contrastar con el fondo azul */
+}
+
+/* Ícono de "caret" (flecha) en el desplegable */
+.dropdownCaret {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    /* El color por defecto ya lo toma de .icon o .text-color */
+}
+
+/* Rota el caret cuando el menú está abierto */
+.dropdownCaret.rotate {
+    transform: rotate(180deg);
+}
+
+/* Menú desplegable (submenú) */
+.dropdownMenu {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    position: absolute;
+    top: 100%; /* Posiciona debajo del toggle */
+    left: 0;
+    width: 100%;
+    background-color: var(--sidebar-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: hidden; /* Importante para la animación de altura */
+
+    /* Propiedades para la animación de aparición */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Muestra el menú desplegable cuando está abierto */
+.dropdownMenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Ítems individuales dentro del menú desplegable */
+.dropdownMenuItem a {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px 8px 60px; /* Indentación para sub-ítems */
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font-size: 0.95em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.dropdownMenuItem a .icon {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* Efecto hover en los sub-ítems */
+.dropdownMenuItem a:hover {
+    background-color: var(--primary-color);
+}
+
+.dropdownMenuItem a:hover .icon,
+.dropdownMenuItem a:hover .text {
+    color: var(--sidebar-color);
+}
+
+/* Estilo para el sub-ítem activo */
+.dropdownMenuItem a.active {
+    background-color: var(--primary-color); /* Usamos primary-color para la consistencia del color principal (azul) */
+    color: var(--sidebar-color); /* Blanco */
+    border-radius: 6px;
+}
+.dropdownMenuItem a.active .icon,
+.dropdownMenuItem a.active .text {
+    color: var(--sidebar-color);
+}
+
+
+/* ==================================================== */
+/* 7. AJUSTES DE RESPONSIVIDAD (MÓVIL / TABLET) */
+/* ==================================================== */
+
+/* 7.1. Estilos Globales del Sidebar en Móvil */
+@media (max-width: 768px) {
+    
+    /* El Sidebar Fijo en Móvil: Oculto por defecto */
+    .sidebar {
+        /* Mantenemos fixed, pero lo movemos fuera de la pantalla */
+        left: -250px; 
+        width: 250px; /* Ancho completo del menú para deslizar */
+        transition: left var(--tran-05); /* Transición en el eje X */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra para el efecto deslizable */
+    }
+    
+    /* El Sidebar Abierto (Cuando se activa con el botón Hamburguesa) */
+    .open-mobile {
+        left: 0; /* Lo desliza hacia dentro */
+    }
+
+    /* Ocultamos el toggle nativo, ya que el menú se maneja externamente */
+    .sidebar header .toggle {
+        display: none; 
+    }
+    
+    .sidebar header {
+        padding-top: 60px; /* Ajusta este valor si tu barra de navegación superior es más alta */
+    }
+    /* 7.2. Ajustes al Contenido Principal (.home) */
+    /* Anulamos la compensación de margen que causa el desborde */
+    .home {
+        position: relative; /* Cambiamos a relativo para mantener el flujo */
+        left: 0; 
+        width: 100%; /* El contenido ocupa todo el ancho del móvil */
+        padding: 10px; /* Reducimos el padding */
+        /* Aseguramos que las transiciones de posición no interfieran */
+        transition: none; 
+    }
+    
+    /* Eliminamos el ajuste cuando el sidebar está cerrado, ya que .home ya no se mueve */
+    .close ~ .home {
+        left: 0;
+        width: 100%;
+    }
+    
+    /* 7.3. Ajuste de Contenido Interno (si lo necesitas) */
+    .search-box input {
+        font-size: 15px; /* Reducción de fuente para ahorrar espacio */
+    }
+}

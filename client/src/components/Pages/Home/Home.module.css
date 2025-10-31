@@ -1,0 +1,370 @@
+/*
+ * =============================================
+ * 1. Contenedor Principal
+ * =============================================
+ * Estilos generales del componente Home.
+ */
+.homeContainer {
+    padding: 40px;
+    background-color: var(--body-color); /* Usa la variable global del color de fondo del tema */
+    color: var(--text-color); /* Usa la variable global del color de texto del tema */
+    min-height: calc(100vh - 40px); /* Ajusta la altura para considerar posible navegación fija */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio entre secciones */
+    align-items: center;
+}
+
+/*
+ * =============================================
+ * 2. Sección Principal (Hero Section) - (Generalmente oculta si usas HeroCarousel)
+ * =============================================
+ */
+.heroSection {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.mainTitle {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color); /* Color del título principal del tema */
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.3em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text-color); /* Color de la descripción del tema */
+}
+
+.heroImageContainer {
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo para el logo */
+    margin: 0 auto;
+}
+
+.heroImage {
+    width: 100%;
+    height: auto;
+    opacity: 0.9; /* Pequeña transparencia para el logo */
+}
+
+/*
+ * =============================================
+ * 3. Sección de Tarjetas (Cards Section: Misión y Visión)
+ * =============================================
+ */
+.cardsSection {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 30px; 
+    width: 100%;
+    max-width: 1200px; 
+}
+
+.card {
+    background-color: var(--sidebar-color); /* Color de fondo de la tarjeta del tema */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    flex: 1; 
+    min-width: 300px;
+    max-width: 450px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--toggle-color); /* Borde con color de acento del tema */
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cardIcon {
+    font-size: 3em;
+    color: var(--primary-color); /* Color del icono del tema */
+    margin-bottom: 15px;
+}
+
+.cardTitle {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Color del título de la tarjeta del tema */
+}
+
+.cardText {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--text-color); /* Color del texto de la tarjeta del tema */
+    opacity: 0.9;
+}
+
+/*
+ * =============================================
+ * 4. Sección de HORARIOS DE REUNIÓN (NUEVA)
+ * =============================================
+ */
+.scheduleSection {
+    margin: 20px auto; /* Reducido para integrarse mejor con el gap de homeContainer */
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+    background-color: var(--sidebar-color); /* Fondo similar a las tarjetas */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.scheduleTitle {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.scheduleGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.scheduleItem {
+    background-color: var(--body-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+    border: 1px solid var(--toggle-color);
+}
+
+.scheduleItem:hover {
+    transform: translateY(-5px);
+}
+
+.scheduleIcon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.scheduleItemTitle {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.scheduleItem p {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/*
+ * =============================================
+ * 5. Sección de UBICACIÓN Y MAPA (NUEVA)
+ * =============================================
+ */
+.locationSection {
+    margin: 20px auto; 
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.locationTitle {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.locationAddress {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.mapContainer {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    height: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.googleMap {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+}
+
+
+/*
+ * =============================================
+ * 6. Sección de Valores (Values Section: Nuestros Pilares)
+ * =============================================
+ */
+.valuesSection {
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.valuesTitle {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--primary-color); /* Color del título de valores del tema */
+}
+
+.valuesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; 
+}
+
+.valueItem {
+    background-color: var(--primary-color); /* Fondo del ítem de valor del tema */
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.valueItem:hover {
+    transform: translateY(-15px); 
+}
+
+.valueIcon {
+    font-size: 2.5em;
+    color: var(--primary-color-light); /* Color del icono de valor del tema */
+    margin-bottom: 10px;
+}
+
+.valueItem p {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color-light); /* Color del texto de valor del tema */
+}
+
+/*
+ * =============================================
+ * 7. Sección de Llamada a la Acción (CTA Section)
+ * =============================================
+ */
+.ctaSection {
+    background-color: var(--primary-color-light); /* Fondo de CTA del tema */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ctaText {
+    color: var(--primary-color); /* Color del texto de CTA del tema */
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.ctaButton {
+    background-color: #fff; /* Fondo del botón de CTA */
+    color: var(--primary-color); /* Color del texto del botón de CTA */
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: var(--primary-color); /* Fondo del botón de CTA al pasar el ratón */
+    color: var(--primary-color-light); /* Color del texto del botón de CTA al pasar el ratón */
+}
+
+.ctaButton .bx {
+    font-size: 1.5em;
+}
+
+/*
+ * =============================================
+ * 8. Media Queries para Responsividad
+ * =============================================
+ */
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 2.5em;
+    }
+    .description {
+        font-size: 1em;
+    }
+    .card, .valueItem, .scheduleItem {
+        min-width: unset; 
+        width: 100%;
+        max-width: 400px; 
+    }
+    .cardsSection, .valuesGrid, .scheduleGrid {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    /* Mapa en móvil */
+    .mapContainer {
+        padding-bottom: 75%; /* Haz el mapa más alto en móvil (4:3) */
+    }
+}
+
+@media (max-width: 480px) {
+    .homeContainer {
+        padding: 20px;
+    }
+    .mainTitle {
+        font-size: 2em;
+    }
+    .scheduleTitle, .locationTitle, .valuesTitle {
+        font-size: 2em;
+    }
+    .card, .valueItem, .scheduleItem {
+        padding: 20px;
+    }
+    .ctaSection {
+        padding: 25px;
+    }
+    .ctaText {
+        font-size: 1.1em;
+    }
+    .ctaButton {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
