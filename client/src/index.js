@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// 🔑 AÑADIDO: Importaciones de estilos de librerías globales
+// 🔑 Solución final: Webpack necesita ver la importación directa al módulo
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
 
