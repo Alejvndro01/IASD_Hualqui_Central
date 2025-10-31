@@ -11,8 +11,6 @@ import React from 'react'; // Eliminado useEffect, useNavigate, Swal, withReactC
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Importaciones de estilos globales
-import 'slick-carousel/slick/slick.css'; 
-import 'slick-carousel/slick/slick-theme.css';
 import './App.css'; 
 
 // Importaciones de Componentes de Layout y Utilidades
